@@ -26,6 +26,8 @@ It could be you!
 
 <a href="http://picktype.com" target="_blank"><img src="https://picktype.com/wp-content/uploads/2017/04/pt-trans-full-256.png" width="200px"></a>
 
+- Adrien M
+
 ---
 
 ### $50+
@@ -39,7 +41,7 @@ It could be you!
 
 ### $10+
 
-- Max Matteo Staack ($4400)
+- Max Matteo Staack ($40)
 - Valerian Cure ($25)
 - Shawn Makinson ($25)
 - Anca-Anamaria Enache ($20)
@@ -68,6 +70,8 @@ It could be you!
 - William Correa
 - PHPZM
 - Klemens Witting
+- Jochen Geiger
+- Rok Kogovšek
 
 - Ken ($5)
 - Oliver ($5)
@@ -82,6 +86,7 @@ It could be you!
 
 ### Notable one time
 
+- Bert Van den Eynde 600 EUR
 - Jurgen Hollfelder 500 EUR
 - Robert Preston $250
 - Remo Laubacher $200

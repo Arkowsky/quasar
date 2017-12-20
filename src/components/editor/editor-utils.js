@@ -1,4 +1,5 @@
 import { QBtn, QBtnToggle, QBtnDropdown, QBtnGroup } from '../btn'
+import { QInput } from '../input'
 import { QTooltip } from '../tooltip'
 import { QList, QItem, QItemSide, QItemMain } from '../list'
 import extend from '../../utils/extend'
@@ -166,7 +167,7 @@ export function getToolbar (h, vm) {
   }
 }
 
-export function getFonts (defaultFont, defaultFontLabel, fonts = {}) {
+export function getFonts (defaultFont, defaultFontLabel, defaultFontIcon, fonts = {}) {
   const aliases = Object.keys(fonts)
   if (aliases.length === 0) {
     return {}
@@ -176,7 +177,7 @@ export function getFonts (defaultFont, defaultFontLabel, fonts = {}) {
     default_font: {
       cmd: 'fontName',
       param: defaultFont,
-      icon: 'font_download',
+      icon: defaultFontIcon,
       tip: defaultFontLabel
     }
   }
@@ -186,11 +187,89 @@ export function getFonts (defaultFont, defaultFontLabel, fonts = {}) {
     def[alias] = {
       cmd: 'fontName',
       param: name,
-      icon: 'font_download',
+      icon: defaultFontIcon,
       tip: name,
       htmlTip: `<font face="${name}">${name}</font>`
     }
   })
 
   return def
+}
+
+export function getLinkEditor (h, vm) {
+  if (vm.caret) {
+    let link = vm.editLinkUrl
+    const updateLink = () => {
+      vm.caret.restore()
+      if (link !== vm.editLinkUrl) {
+        document.execCommand('createLink', false, link === '' ? ' ' : link)
+      }
+      vm.editLinkUrl = null
+    }
+
+    return [
+      h(QInput, {
+        key: 'qedt_btm_input',
+        staticClass: 'q-ma-none q-pa-none col',
+        props: {
+          value: link,
+          color: 'dark',
+          autofocus: true,
+          hideUnderline: true,
+          floatLabel: vm.$q.i18n.editor.url
+        },
+        on: {
+          input: val => (link = val),
+          keyup: event => {
+            switch (event.keyCode) {
+              case 13: // enter
+                return updateLink()
+              case 27: // escape
+                vm.caret.restore()
+                vm.editLinkUrl = null
+                break
+            }
+          }
+        }
+      }),
+      h(QBtnGroup, {
+        key: 'qedt_btm_grp',
+        props: {
+          flat: true
+        }
+      }, [
+        h(QBtn, {
+          key: 'qedt_btm_rem',
+          attrs: {
+            tabindex: -1
+          },
+          props: {
+            color: 'negative',
+            label: vm.$q.i18n.label.remove,
+            size: 'sm',
+            flat: true,
+            compact: true,
+            noCaps: true
+          },
+          on: {
+            click: updateLink
+          }
+        }),
+        h(QBtn, {
+          key: 'qedt_btm_upd',
+          props: {
+            color: 'primary',
+            label: vm.$q.i18n.label.update,
+            size: 'sm',
+            flat: true,
+            compact: true,
+            noCaps: true
+          },
+          on: {
+            click: updateLink
+          }
+        })
+      ])
+    ]
+  }
 }

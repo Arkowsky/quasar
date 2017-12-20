@@ -1,5 +1,5 @@
 export default {
-  lang: 'en-uk',
+  lang: 'pl',
   label: {
     clear: 'Wyczyść',
     ok: 'OK',
@@ -40,7 +40,7 @@ export default {
   },
   editor: {
     url: 'URL',
-    bold: 'Pogróbienie',
+    bold: 'Pogrubienie',
     italic: 'Kursywa',
     strikethrough: 'Przekreślenie',
     underline: 'Podkreślenie',
@@ -49,7 +49,7 @@ export default {
     subscript: 'Indeks dolny',
     superscript: 'Indeks górny',
     hyperlink: 'Hiperłącze',
-    toggleFullscreen: 'Przełącz tryb pełnoekranowy',
+    toggleFullscreen: 'Przełącz na tryb pełnoekranowy',
     quote: 'Zacytuj',
     left: 'Wyrównaj do lewej',
     center: 'Wyrównaj do środka',
@@ -64,7 +64,8 @@ export default {
     align: 'Wyrównanie',
     hr: 'Wstaw poziomą linię',
     undo: 'Cofnij',
-    redo: 'Przywróc',
+    redo: 'Przywróć',
+
     header1: 'Nagłówek 1',
     header2: 'Nagłówek 2',
     header3: 'Nagłówek 3',
@@ -81,9 +82,5 @@ export default {
     size6: 'Bardzo duża',
     size7: 'Maksymalna',
     defaultFont: 'Domyślna czcionka'
-  },
-  tree: {
-    noNodes: 'Brak dostępnych gałęzi',
-    noResults: 'Nie znaleziono pasujących gałęzi'
   }
 }
